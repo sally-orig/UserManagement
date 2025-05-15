@@ -1,0 +1,65 @@
+# Normalize all text files to LF
+* text=auto eol=lf
+
+# Python files
+*.py text eol=lf
+
+# Shell scripts
+*.sh text eol=lf
+
+# Docker
+Dockerfile text eol=lf
+*.dockerignore text eol=lf
+
+# Environment and configuration files
+*.env text eol=lf
+*.ini text eol=lf
+*.cfg text eol=lf
+*.toml text eol=lf
+
+# JSON/YAML settings (e.g., OpenAPI, app settings)
+*.json text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+
+# Markdown / documentation
+*.md text eol=lf
+*.txt text eol=lf
+
+# Static files for frontend or documentation (if served)
+*.html text eol=lf
+*.css text eol=lf
+*.js text eol=lf
+
+# Testing tools / CI configs
+*.test text eol=lf
+*.spec text eol=lf
+*.github/* text eol=lf
+*.gitlab-ci.yml text eol=lf
+
+# Requirements and lock files
+requirements*.txt text eol=lf
+poetry.lock text eol=lf
+Pipfile text eol=lf
+Pipfile.lock text eol=lf
+
+# VS Code and editor configs
+*.code-workspace text eol=lf
+*.vscode/* text eol=lf
+
+# Ignore binary files (no line-ending normalization)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+*.tar binary
+*.gz binary
+*.woff binary
+*.woff2 binary
+*.eot binary
+*.ttf binary
+*.mp4 binary
+*.mp3 binary
