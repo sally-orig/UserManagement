@@ -21,9 +21,7 @@ A fastapi application to manage users - includes creating, updating, deleting an
     >docker compose build
 4. Put up container
     >docker compose up -d
-
-(Note: The following instructions will only need to be executed upon initial build)
-5. Copy insert_data.py to container to populate database
+5. Copy insert_data.py to container to populate database (Note: The following instructions will only need to be executed upon initial build)
     >docker cp insert_data.py fastapi:/app/insert_data.py
 6. Open bash terminal in docker container
     >docker exec -it fastapi bash
