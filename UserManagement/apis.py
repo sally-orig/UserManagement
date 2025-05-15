@@ -7,7 +7,7 @@ from .views import get_all_users, get_user_by_id
 router = APIRouter()
 
 # Get /users - list all users (id, email only)
-@router.get("/", response_model=list[UserList], status_code=200)
+@router.get("", response_model=list[UserList], status_code=200)
 async def get_users(db: Session = Depends(get_db)):
     users = get_all_users(db)
     if not users:

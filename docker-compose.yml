@@ -22,11 +22,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      DB_HOST: ${DB_HOST}               # Use environment variable from `.env`
-      DB_PORT: ${DB_PORT}
-      DB_NAME: ${DB_NAME}
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
+      DB_URL: mysql+mysqldb://admin:admin123@db:3306/usermanagement
     volumes:
       - .:/app
 

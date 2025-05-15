@@ -3,19 +3,12 @@ import os
 from sqlalchemy import engine_from_config, pool
 from alembic import context
 from dotenv import load_dotenv
+import os
 
-# Load .env
 load_dotenv()
 
-# Read env variables
-DB_USER = os.getenv("DB_USER")
-DB_PASSWORD = os.getenv("DB_PASSWORD")
-DB_HOST = "db"
-DB_PORT = os.getenv("DB_PORT")
-DB_NAME = os.getenv("DB_NAME")
-
-# Build DB URL
-DATABASE_URL = f"mysql+mysqldb://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+# DATABASE_URL = f"mysql+mysqldb://admin:admintest@ld77.ci9mca82oykl.us-east-1.rds.amazonaws.com:3306/ld-dev"
+DATABASE_URL = os.getenv("DB_URL")
 
 # Alembic config
 config = context.config

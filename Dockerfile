@@ -40,4 +40,4 @@ RUN dos2unix /app/wait-for-it.sh && chmod +x /app/wait-for-it.sh
 
 EXPOSE 8000
 
-CMD ["sh", "-c", "./wait-for-it.sh db:3306 -- alembic upgrade head && uvicorn UserManagement.main:app --host 0.0.0.0 --port 8000 --reload"]
+CMD ["sh", "-c", "./wait-for-it.sh localhost:3306 -- uvicorn UserManagement.main:app --host 0.0.0.0 --port 8000 --reload"]
