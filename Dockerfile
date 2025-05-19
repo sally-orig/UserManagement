@@ -36,8 +36,8 @@ COPY --from=builder /install /usr/local
 COPY . .
 
 # Convert line endings and ensure script is executable
-RUN dos2unix /app/wait-for-it.sh && chmod +x /app/wait-for-it.sh
+RUN dos2unix /app/wait-for-it.sh /app/start.sh && chmod +x /app/wait-for-it.sh /app/start.sh
 
-EXPOSE 8000
+EXPOSE 8085
 
-CMD ["sh", "-c", "./wait-for-it.sh localhost:3306 -- uvicorn UserManagement.main:app --host 0.0.0.0 --port 8000 --reload"]
+CMD ["./wait-for-it.sh", "db:3306", "--", "./start.sh"]

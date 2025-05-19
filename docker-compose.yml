@@ -13,18 +13,27 @@ services:
       - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - my_network
 
   fastapi:
     build: .
-    container_name: fastapi
+    container_name: fastapi_user
     depends_on:
       - db
+    image: fastapi_user
     ports:
-      - "8000:8000"
+      - "8085:8085"
     environment:
       DB_URL: mysql+mysqldb://admin:admin123@db:3306/usermanagement
     volumes:
       - .:/app
+    networks:
+      - my_network
 
 volumes:
   mysql_data:
+
+networks:
+  my_network:
+    driver: bridge
