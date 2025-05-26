@@ -1,9 +1,9 @@
 #!/bin/bash
 set -e
 
-echo "Checking if the 'user' table exists in MySQL..."
+echo "Connecting to MySQL at $DB_HOST..."
 
-TABLE_EXISTS=$(mysql -h db -uadmin -padmin123 -Dusermanagement -e "SHOW TABLES LIKE 'user';" | grep user || true)
+TABLE_EXISTS=$(mysql -h "$DB_HOST" -u"$DB_USER" -p"$DB_PASSWORD" -D"$DB_NAME" -e "SHOW TABLES LIKE 'user';" | grep user || true)
 
 if [ -z "$TABLE_EXISTS" ]; then
   echo "'user' table does not exist. Running Alembic migrations..."

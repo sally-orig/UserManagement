@@ -7,7 +7,7 @@ import os
 load_dotenv()
 
 # DATABASE_URL = f"mysql+mysqldb://admin:admintest@ld77.ci9mca82oykl.us-east-1.rds.amazonaws.com:3306/ld-dev"
-DATABASE_URL = os.getenv("DB_URL", "mysql+mysqldb://admin:admin123@localhost:3306/usermanagement")
+DATABASE_URL = os.getenv("DB_URL", "mysql+mysqldb://admin:admin123@mysql:3306/usermanagement")
 print(DATABASE_URL)
 
 engine = create_engine(DATABASE_URL)

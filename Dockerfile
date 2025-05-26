@@ -26,6 +26,7 @@ WORKDIR /app
 # Install runtime dependencies + dos2unix for script compatibility
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libmariadb-dev \
+    default-mysql-client \
     dos2unix \
     && rm -rf /var/lib/apt/lists/*
 
@@ -40,4 +41,5 @@ RUN dos2unix /app/wait-for-it.sh /app/start.sh && chmod +x /app/wait-for-it.sh /
 
 EXPOSE 8085
 
-CMD ["./wait-for-it.sh", "db:3306", "--", "./start.sh"]
+CMD ["/bin/bash", "-c", "./wait-for-it.sh \"$DB_HOST:$DB_PORT\" -- ./start.sh"]
+

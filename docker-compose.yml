@@ -26,6 +26,8 @@ services:
       - "8085:8085"
     environment:
       DB_URL: mysql+mysqldb://admin:admin123@db:3306/usermanagement
+      DB_HOST: db
+      DB_PORT: 3306
     volumes:
       - .:/app
     networks:

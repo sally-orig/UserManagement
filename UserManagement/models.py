@@ -7,3 +7,6 @@ class User(Base):
     email = Column(String(100), unique=True, nullable=False)
     age = Column(Integer, nullable=False)
     date_of_birth = Column(Date, nullable=False)
+
+    class Config:
+        orm_mode = True
